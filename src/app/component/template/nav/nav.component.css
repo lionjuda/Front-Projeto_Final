@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+/* Estilização da barra superior */
+.top-toolbar {
+  background-color: #0e0230;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 64px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 255, 255, 0.2);
+}
+
+/* Espaço flexível entre logo e links */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Estilo do título/logo à esquerda */
+.logo-title {
+  display: flex;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+}
+
+/* Estilo dos links no topo */
+.top-toolbar a {
+  color: #fff;
+  font-family: sans-serif;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.top-toolbar a:hover {
+  background-color: #140342;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+  font-family: "Orbitron", sans-serif;
+  transform: translateY(4px); /* desliza ligeiramente para baixo */
+}
+
+/* Ícones */
+.icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* Animação de rotação simples */
+.gira-simples {
+  transition: transform 0.6s ease;
+}
+
+.gira-simples:hover {
+  transform: rotate(360deg);
+}
+
+/* Animação 3D para girar de frente para trás */
+.gira-3d {
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.gira-3d:hover {
+  transform: rotateY(180deg);
+}
+
+/* Efeito especial para ícone de cliente */
+.cliente-efeito {
+  transition: transform 0.4s ease;
+}
+
+.cliente-efeito:hover {
+  transform: scale(1.1);
+}
+
+/* Conteúdo abaixo da barra */
+.content {
+  padding: 20px;
+  background-color: #13141f;
+  min-height: calc(100vh - 64px); /* altura da tela menos a barra */
+  color: #ffffff;
+}
+.cliente-brilho {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.cliente-brilho img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.4s ease;
+}
+
+.cliente-brilho:hover img {
+  transform: scale(1.1);
+}
+
+/* Efeito de reflexo animado */
+.cliente-brilho::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -45%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: rotate(25deg);
+  animation: reflexo-luz 2.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes reflexo-luz {
+  0% {
+    top: -100%;
+    left: -50%;
+  }
+  100% {
+    top: 100%;
+    left: 100%;
+  }
+}
