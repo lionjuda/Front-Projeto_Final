@@ -16,7 +16,7 @@ export class ProductCrudComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.productService.read().subscribe(products => {
       this.allProducts = products;
@@ -30,7 +30,9 @@ export class ProductCrudComponent implements OnInit {
   filterProducts(): void {
     const term = this.searchTerm.toLowerCase();
     this.filteredProducts = this.allProducts.filter(p =>
-      p.proNome.toLowerCase().includes(term)
+      (p.proNome.toLowerCase().includes(term)) ||
+      (p.proPrecoCusto !== null && p.proPrecoCusto.toString().includes(term)) ||
+      (p.proPrecoVenda !== null && p.proPrecoVenda.toString().includes(term))
     );
   }
 }
