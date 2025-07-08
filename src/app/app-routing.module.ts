@@ -28,87 +28,87 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent
-},
-{
+  },
+  {
     path: "products",
     component: ProductCrudComponent
-},
-{
-  path: "products/create",
-  component: ProductCreateComponent
-},
-{
-  path: "clientes",
-  component: ClienteCrudComponent
-},
-{
-path: "clientes/create",
-component: ClienteCreateComponent
-},
-{
-  path: "fornecedor",
-  component: FornecedorCrudComponent
-},
-{
-path: "fornecedor/create",
-component: FornecedorCreateComponent
-},
-{
-  path: "contato",
-  component: ContatoCrudComponent
-},
-{
-path: "contatos/create",
-component: ContatoCreateComponent
-},
-{
-  path: "formaPagamento",
-  component: FormaPagamentoCrudComponent
-},
-{
-path: "formaPagamentos/create",
-component: FormaPagamentoCreateComponent
-},
-{
-  path: "products/update/:proId",
-  component: ProductUpdateComponent
-},
-{
-  path: "products/delete/:proId",
-  component: ProductDeleteComponent
-},
-{
-  path: "clientes/update/:cliId",
-  component: ClienteUpdateComponent
-},
-{
-  path: "clientes/delete/:cliId",
-  component: ClienteDeleteComponent
-},
-{
-  path: "fornecedor/update/:forId",
-  component: FornecedorUpdateComponent
-},
-{
-  path: "fornecedor/delete/:forId",
-  component: FornecedorDeleteComponent
-},
-{
-  path: "formaPagamento/update/:fpgId",
-  component: FormaPagamentoUpdateComponent
-},
-{
-  path: "formaPagamento/delete/:fpgId",
-  component: FormaPagamentoDeleteComponent
-},
-{
-  path: "contato/delete/:conId",
-  component: ContatoDeleteComponent
-},
-{
-  path: "contato/update/:conId",
-  component: ContatoUpdateComponent
-},
+  },
+  {
+    path: "products/create",
+    component: ProductCreateComponent
+  },
+  {
+    path: "clientes",
+    component: ClienteCrudComponent
+  },
+  {
+    path: "clientes/create",
+    component: ClienteCreateComponent
+  },
+  {
+    path: "fornecedor",
+    component: FornecedorCrudComponent
+  },
+  {
+    path: "fornecedor/create",
+    component: FornecedorCreateComponent
+  },
+  {
+    path: "contato",
+    component: ContatoCrudComponent
+  },
+  {
+    path: "contatos/create",
+    component: ContatoCreateComponent
+  },
+  {
+    path: "formaPagamento",
+    component: FormaPagamentoCrudComponent
+  },
+  {
+    path: "formaPagamentos/create",
+    component: FormaPagamentoCreateComponent
+  },
+  {
+    path: "products/update/:proId",
+    component: ProductUpdateComponent
+  },
+  {
+    path: "products/delete/:proId",
+    component: ProductDeleteComponent
+  },
+  {
+    path: "clientes/update/:cliId",
+    component: ClienteUpdateComponent
+  },
+  {
+    path: "clientes/delete/:cliId",
+    component: ClienteDeleteComponent
+  },
+  {
+    path: "fornecedor/update/:forId",
+    component: FornecedorUpdateComponent
+  },
+  {
+    path: "fornecedor/delete/:forId",
+    component: FornecedorDeleteComponent
+  },
+  {
+    path: "formaPagamento/update/:fpgId",
+    component: FormaPagamentoUpdateComponent
+  },
+  {
+    path: "formaPagamento/delete/:fpgId",
+    component: FormaPagamentoDeleteComponent
+  },
+  {
+    path: "contato/delete/:conId",
+    component: ContatoDeleteComponent
+  },
+  {
+    path: "contato/update/:conId",
+    component: ContatoUpdateComponent
+  },
 ];
 
 @NgModule({

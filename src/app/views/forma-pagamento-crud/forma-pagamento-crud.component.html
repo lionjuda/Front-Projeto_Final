@@ -1,20 +1,15 @@
 <main>
-    <mat-card>
-<button mat-raised-button (click)="navigateToFormaPagamentoCreate()" color="primary">
-    Nova Forma de pagamento
-</button>
-<input
-      type="text"
-      placeholder="Pesquisar formaPagamento"
-      [(ngModel)]="searchTerm"
-      (input)="filtrarFormaPagamentos()"
-      style="margin: 10px; padding: 5px; width: 250px"
-    />
-     <ul>
-      <li *ngFor="let formaPagamento of formaPagamentosFiltrados">
-        {{ formaPagamento.fpgDescricao }}
-      </li>
-    </ul>
-<app-forma-pagamento-read></app-forma-pagamento-read>
-    </mat-card>
+  <mat-card>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 15px;">
+      <button mat-raised-button color="primary" (click)="navigateToFormaPagamentoCreate()">
+        Nova Forma de Pagamento
+      </button>
+
+      <input type="text" placeholder="Pesquisar forma de pagamento" [(ngModel)]="searchTerm"
+        (input)="filtrarFormasPagamento()" style="padding: 5px; width: 250px" />
+    </div>
+
+    <!-- Componente responsável pela exibição dos dados -->
+    <app-forma-pagamento-read></app-forma-pagamento-read>
+  </mat-card>
 </main>

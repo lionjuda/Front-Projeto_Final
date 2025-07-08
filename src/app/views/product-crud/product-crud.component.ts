@@ -28,11 +28,19 @@ export class ProductCrudComponent implements OnInit {
   }
 
   filterProducts(): void {
-    const term = this.searchTerm.toLowerCase();
-    this.filteredProducts = this.allProducts.filter(p =>
-      (p.proNome.toLowerCase().includes(term)) ||
-      (p.proPrecoCusto !== null && p.proPrecoCusto.toString().includes(term)) ||
-      (p.proPrecoVenda !== null && p.proPrecoVenda.toString().includes(term))
-    );
+    const term = this.searchTerm.toLowerCase().trim();
+
+    if (!term) {
+      this.filteredProducts = this.allProducts;
+      return;
+    }
+
+    this.filteredProducts = this.allProducts.filter(p => {
+      return (
+        p.proNome.toLowerCase().includes(term) ||
+        (p.proPrecoCusto !== null && p.proPrecoCusto.toString().includes(term)) ||
+        (p.proPrecoVenda !== null && p.proPrecoVenda.toString().includes(term))
+      );
+    });
   }
 }

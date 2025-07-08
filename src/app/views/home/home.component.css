@@ -89,15 +89,17 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
+    justify-content: center;
+    /* centraliza os gráficos horizontalmente */
 }
 
 /* Estilo individual dos gráficos */
 .chart {
-    flex: 1 1 350px;
+    flex: 0 0 45%;
     background: #121212;
-    padding: 32px;
+    padding: 20px;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(51, 212, 214, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -107,8 +109,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
-
+    min-height: 180px;
+    /* altura um pouco menor */
+    max-width: 420px;
+    /* limita largura máxima para não esticar demais */
 }
 
 /* Efeito de hover nos gráficos */
@@ -138,7 +142,7 @@ main {
 
     .chart {
         flex: 1 1 100%;
-        padding: 24px;
+        padding: 20px;
         min-height: 150px;
     }
 }

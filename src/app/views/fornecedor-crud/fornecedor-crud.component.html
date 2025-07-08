@@ -1,23 +1,16 @@
 <main>
   <mat-card>
-    <button mat-raised-button (click)="navigateToFornecedorCreate()" color="primary">
-      Novo Fornecedor
-    </button>
 
-    <input
-      type="text"
-      placeholder="Pesquisar fornecedor"
-      [(ngModel)]="searchTerm"
-      (input)="filtrarClientes()"
-      style="margin: 10px; padding: 5px; width: 250px"
-    />
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+      <button mat-raised-button color="primary" (click)="navigateToFornecedorCreate()">
+        Novo Fornecedor
+      </button>
 
-    <ul>
-      <li *ngFor="let fornecedor of fornecedorsFiltrados">
-        {{ fornecedor.forNomeFantasia }}
-      </li>
-    </ul>
+      <input type="text" placeholder="Pesquisar fornecedor" [(ngModel)]="searchTerm" (input)="filtrarFornecedores()"
+        style="padding: 5px; width: 250px" />
+    </div>
 
     <app-fornecedor-read></app-fornecedor-read>
+
   </mat-card>
 </main>

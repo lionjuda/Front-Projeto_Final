@@ -23,10 +23,15 @@
           <p>22</p>
         </div>
       </section>
-      <section class="charts">
-        <div class="chart">📊 Gráfico de Vendas Semanais</div>
-        <div class="chart">🏆 Produtos Mais Vendidos</div>
-      </section>
+      <div style="max-width: 300px; margin: auto;">
+        <canvas baseChart [data]="pizzaData" [type]="pizzaType">
+        </canvas>
+      </div>
+
+      <div style="max-width: 500px; margin: auto; margin-top: 40px;">
+        <canvas baseChart [data]="barData" [type]="barType">
+        </canvas>
+      </div>
     </main>
   </div>
 </body>

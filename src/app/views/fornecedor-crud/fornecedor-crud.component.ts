@@ -11,17 +11,17 @@ import { FornecedorService } from 'src/app/component/fornecedor/fornecedor.servi
 export class FornecedorCrudComponent implements OnInit {
   searchTerm: string = '';
   todosFornecedores: Fornecedor[] = [];
-  fornecedorsFiltrados: Fornecedor[] = [];
+  fornecedoresFiltrados: Fornecedor[] = [];
 
   constructor(
     private router: Router,
     private fornecedorService: FornecedorService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.fornecedorService.read().subscribe(fornecedores => {
       this.todosFornecedores = fornecedores;
-      this.fornecedorsFiltrados = fornecedores;
+      this.fornecedoresFiltrados = fornecedores;
     });
   }
 
@@ -29,10 +29,21 @@ export class FornecedorCrudComponent implements OnInit {
     this.router.navigate(['/fornecedor/create']);
   }
 
-  filtrarClientes(): void {
-    const termo = this.searchTerm.toLowerCase();
-    this.fornecedorsFiltrados = this.todosFornecedores.filter(f =>
-      f.forNomeFantasia.toLowerCase().includes(termo)
-    );
+  filtrarFornecedores(): void {
+    const termo = this.searchTerm.toLowerCase().trim();
+
+    if (!termo) {
+      // Se o campo de busca estiver vazio, mostra todos os fornecedores
+      this.fornecedoresFiltrados = this.todosFornecedores;
+      return;
+    }
+
+    this.fornecedoresFiltrados = this.todosFornecedores.filter(fornecedor => {
+      return (
+        fornecedor.forNomeFantasia.toLowerCase().includes(termo) ||
+        fornecedor.forCnpj.toLowerCase().includes(termo) ||
+        fornecedor.forRazaoSocial.toLowerCase().includes(termo)
+      );
+    });
   }
 }

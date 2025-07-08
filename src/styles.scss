@@ -6,15 +6,12 @@ $accent-color: mat.define-palette(mat.$orange-palette, A200);
 $warn-color: mat.define-palette(mat.$deep-purple-palette);
 
 // Cria o tema personalizado
-$custom-theme: mat.define-light-theme((
-  color: (
-    primary: $primary-color,
-    accent: $accent-color,
-    warn: $warn-color
-  ),
-  typography: mat.define-typography-config(),
-  density: 0,
-));
+$custom-theme: mat.define-light-theme((color: (primary: $primary-color,
+        accent: $accent-color,
+        warn: $warn-color ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
 
 // Aplica o tema
 @include mat.core();
@@ -27,8 +24,16 @@ body {
 }
 
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #13141f;}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #13141f;
+}
 
 #loader {
   position: fixed;
@@ -53,6 +58,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
