@@ -1,38 +1,58 @@
 /* Estilização da área principal da página */
 main {
-    background: linear-gradient(135deg, #121212 0%, #14142b 100%); /* Gradiente escuro para o fundo da página */
-    min-height: 75vh; /* Define a altura mínima do conteúdo principal */
-    padding: 40px 20px; /* Espaçamento interno do conteúdo */
+    background: linear-gradient(135deg, #121212 0%, #14142b 100%);
+    /* Gradiente escuro para o fundo da página */
+    min-height: 75vh;
+    /* Define a altura mínima do conteúdo principal */
+    padding: 40px 20px;
+    /* Espaçamento interno do conteúdo */
 }
 
 /* Estilização dos cartões (mat-card do Angular Material) */
 mat-card {
-    background: linear-gradient(145deg, #1e1e2f, #2b2b3d); /* Cinzas azulados escuros */
+    background: linear-gradient(145deg, #1e1e2f, #2b2b3d);
+    /* Cinzas azulados escuros */
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(160, 32, 240, 0.2); /* Sombra combinando com o botão roxo */
+    box-shadow: 0 4px 15px rgba(160, 32, 240, 0.2);
+    /* Sombra combinando com o botão roxo */
     padding: 20px;
     margin-bottom: 20px;
 }
 
 /* Estilização padrão dos botões */
 button {
-    margin-bottom: 30px; /* Espaço inferior do botão */
-    width: 100%; /* Ocupa toda a largura do container */
-    height: 45px; /* Altura padrão do botão */
+    margin-bottom: 15px;
+    /* Espaço inferior do botão */
+    width: 100%;
+    /* Ocupa toda a largura do container */
+    height: 45px;
+    /* Altura padrão do botão */
     background: linear-gradient(90deg, #0084ff, #e05c04);
-    color: white; /* Texto em branco para contraste */
-    border: none; /* Remove a borda padrão */
-    border-radius: 5px; /* Bordas levemente arredondadas */
-    font-weight: 600; /* Deixa o texto um pouco mais marcante */
-    letter-spacing: 0.5px; /* Espaçamento sutil entre letras */
-    align-items: center; /* Centraliza o conteúdo do botão */
-    transition: all 0.3s ease; /* Transições suaves para hover e active */
+    color: white;
+    /* Texto em branco para contraste */
+    border: none;
+    /* Remove a borda padrão */
+    border-radius: 5px;
+    /* Bordas levemente arredondadas */
+    font-weight: 600;
+    /* Deixa o texto um pouco mais marcante */
+    display: flex;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    /* Espaçamento sutil entre letras */
+    cursor: pointer;
+    align-items: center;
+    /* Centraliza o conteúdo do botão */
+    transition: all 0.3s ease;
+    /* Transições suaves para hover e active */
 }
 
 /* Efeito visual ao passar o mouse por cima do botão */
 button:hover {
-    box-shadow: 0 6px 24px rgba(255, 45, 198, 0.5); /* Sombra com efeito glow neon */
-    background-image: linear-gradient(90deg, #ff00cc, #00ffff, #ff00cc); /* Gradiente do texto */
+    box-shadow: 0 6px 24px rgba(255, 45, 198, 0.5);
+    /* Sombra com efeito glow neon */
+    background-image: linear-gradient(90deg, #ff00cc, #00ffff, #ff00cc);
+    /* Gradiente do texto */
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
@@ -45,6 +65,7 @@ button:hover {
     0% {
         background-position: 0% center;
     }
+
     100% {
         background-position: 200% center;
     }
@@ -52,6 +73,70 @@ button:hover {
 
 /* Efeito visual ao clicar no botão */
 button:active {
-    transform: scale(0.95); /* Efeito de "afundar" levemente ao clicar */
-    box-shadow: 0 3px 12px rgba(255, 45, 198, 0.4); /* Redução da sombra para simular profundidade */
+    transform: scale(0.95);
+    /* Efeito de "afundar" levemente ao clicar */
+    box-shadow: 0 3px 12px rgba(255, 45, 198, 0.4);
+    /* Redução da sombra para simular profundidade */
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* espaço abaixo da barra */
+  padding-left: 5px;   /* distância da borda esquerda */
+}
+
+.search-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-right: 15px;
+  z-index: 1; /* Garante que fique acima da barra */
+}
+
+.lupa {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #e6f0fa;
+  border-radius: 20px;
+  padding: 5px 10px;
+  opacity: 0;
+  width: 0; /* Começa sem largura */
+  transition: width 0.3s ease, opacity 0.3s ease; /* Expande da esquerda para a direita */
+  overflow: hidden;
+}
+
+.search-box.show {
+  opacity: 1;
+  width: 200px; /* Largura final da barra */
+}
+
+.search-text {
+  background: none;
+  border: 0;
+  outline: 0;
+  font-size: 10px;
+  flex: 1;
+  color: #333;
+  padding: 5px;
+}
+
+/* Ajuste do espaçamento entre a barra e a tabela roxa */
+app-cliente-read {
+  border-radius: 5px;
+  padding: 40px;
+  gap: 300px;
+  margin-top: 5px; /* Aumenta o espaçamento entre a barra e a tabela */
 }

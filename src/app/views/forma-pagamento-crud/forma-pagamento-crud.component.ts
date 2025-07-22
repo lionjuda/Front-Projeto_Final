@@ -12,6 +12,7 @@ export class FormaPagamentoCrudComponent implements OnInit {
   searchTerm: string = '';
   todasFormasPagamento: FormaPagamento[] = [];
   formasPagamentoFiltradas: FormaPagamento[] = [];
+  showSearch: boolean = false;
 
   constructor(
     private router: Router,
@@ -46,8 +47,8 @@ export class FormaPagamentoCrudComponent implements OnInit {
         fp.fpgDescricao?.toLowerCase(),
         fp.fpgAtivo ? 'sim' : 'não',
         fp.fpgPermiteParcelamento ? 'sim' : 'não',
-        String(fp.fpgNumeroMaximoParcelas),
-        String(fp.fpgTaxaAdicional)
+        String(fp.fpgNumeroMaximoParcelas??''),
+        String(fp.fpgTaxaAdicional??'')
       ];
 
       // Verifica se todos os termos pesquisados aparecem em algum campo

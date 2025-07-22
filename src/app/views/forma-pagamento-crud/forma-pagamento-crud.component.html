@@ -1,15 +1,19 @@
 <main>
   <mat-card>
-    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 15px;">
-      <button mat-raised-button color="primary" (click)="navigateToFormaPagamentoCreate()">
-        Nova Forma de Pagamento
-      </button>
+    <button mat-raised-button (click)="navigateToFormaPagamentoCreate()" color="primary">
+      Nova forma de pagamento
+    </button>
 
-      <input type="text" placeholder="Pesquisar forma de pagamento" [(ngModel)]="searchTerm"
-        (input)="filtrarFormasPagamento()" style="padding: 5px; width: 250px" />
+
+      <div class="search-container">
+      <a class="search-btn" (mouseenter)="showSearch = true" (mouseleave)="showSearch = false">
+        <img class="lupa" src="assets/img/lupa.png" alt="Pesquisar">
+      </a>
+      <div class="search-box" [class.show]="showSearch">
+        <input type="text" class="search-text" placeholder="Pesquisar ..." [(ngModel)]="searchTerm" (input)="filtrarFormasPagamento()" />
+      </div>
     </div>
 
-    <!-- Componente responsável pela exibição dos dados -->
-    <app-forma-pagamento-read></app-forma-pagamento-read>
+    <app-contato-read></app-contato-read>
   </mat-card>
 </main>

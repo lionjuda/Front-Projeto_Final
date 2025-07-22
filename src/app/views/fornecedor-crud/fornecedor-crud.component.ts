@@ -12,6 +12,7 @@ export class FornecedorCrudComponent implements OnInit {
   searchTerm: string = '';
   todosFornecedores: Fornecedor[] = [];
   fornecedoresFiltrados: Fornecedor[] = [];
+  showSearch: boolean = false;
 
   constructor(
     private router: Router,
@@ -40,9 +41,9 @@ export class FornecedorCrudComponent implements OnInit {
 
     this.fornecedoresFiltrados = this.todosFornecedores.filter(fornecedor => {
       return (
-        fornecedor.forNomeFantasia.toLowerCase().includes(termo) ||
-        fornecedor.forCnpj.toLowerCase().includes(termo) ||
-        fornecedor.forRazaoSocial.toLowerCase().includes(termo)
+        fornecedor.forNomeFantasia?.toLowerCase().includes(termo) ||
+        fornecedor.forCnpj?.toLowerCase().includes(termo) ||
+        fornecedor.forRazaoSocial?.toLowerCase().includes(termo)
       );
     });
   }

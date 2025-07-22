@@ -23,7 +23,7 @@ mat-card {
 button {
     margin-bottom: 15px;
     /* Espaço inferior do botão */
-    width: 300%;
+    width: auto;
     /* Ocupa toda a largura do container */
     height: 45px;
     /* Altura padrão do botão */
@@ -77,4 +77,66 @@ button:active {
     /* Efeito de "afundar" levemente ao clicar */
     box-shadow: 0 3px 12px rgba(255, 45, 198, 0.4);
     /* Redução da sombra para simular profundidade */
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* espaço abaixo da barra */
+  padding-left: 5px;   /* distância da borda esquerda */
+}
+
+.search-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-right: 15px;
+  z-index: 1; /* Garante que fique acima da barra */
+}
+
+.lupa {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #e6f0fa;
+  border-radius: 20px;
+  padding: 5px 10px;
+  opacity: 0;
+  width: 0; /* Começa sem largura */
+  transition: width 0.3s ease, opacity 0.3s ease; /* Expande da esquerda para a direita */
+  overflow: hidden;
+}
+
+.search-box.show {
+  opacity: 1;
+  width: 200px; /* Largura final da barra */
+}
+
+.search-text {
+  background: none;
+  border: 0;
+  outline: 0;
+  font-size: 10px;
+  flex: 1;
+  color: #333;
+  padding: 5px;
+}
+
+/* Ajuste do espaçamento entre a barra e a tabela roxa */
+app-cliente-read {
+  border-radius: 5px;
+  padding: 40px;
+  gap: 300px;
+  margin-top: 5px; /* Aumenta o espaçamento entre a barra e a tabela */
 }

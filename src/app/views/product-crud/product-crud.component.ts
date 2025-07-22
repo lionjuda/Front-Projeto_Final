@@ -12,6 +12,7 @@ export class ProductCrudComponent implements OnInit {
   searchTerm: string = '';
   allProducts: Product[] = [];
   filteredProducts: Product[] = [];
+  showSearch: boolean = false;
 
   constructor(
     private router: Router,

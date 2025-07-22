@@ -1,16 +1,19 @@
 <main>
   <mat-card>
+    <button mat-raised-button (click)="navigateToFornecedorCreate()" color="primary">
+      Novo fornecedor
+    </button>
 
-    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
-      <button mat-raised-button color="primary" (click)="navigateToFornecedorCreate()">
-        Novo Fornecedor
-      </button>
 
-      <input type="text" placeholder="Pesquisar fornecedor" [(ngModel)]="searchTerm" (input)="filtrarFornecedores()"
-        style="padding: 5px; width: 250px" />
+      <div class="search-container">
+      <a class="search-btn" (mouseenter)="showSearch = true" (mouseleave)="showSearch = false">
+        <img class="lupa" src="assets/img/lupa.png" alt="Pesquisar">
+      </a>
+      <div class="search-box" [class.show]="showSearch">
+        <input type="text" class="search-text" placeholder="Pesquisar ..." [(ngModel)]="searchTerm" (input)="filtrarFornecedores()" />
+      </div>
     </div>
 
-    <app-fornecedor-read></app-fornecedor-read>
-
+    <app-contato-read></app-contato-read>
   </mat-card>
 </main>

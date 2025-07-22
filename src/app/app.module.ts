@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 // Chart.js
 import { NgChartsModule } from 'ng2-charts';
@@ -104,7 +105,8 @@ import { ContatoDeleteComponent } from './component/contato/contato-delete/conta
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgChartsModule // <- AQUI o módulo do gráfico foi adicionado corretamente
+    NgChartsModule,// <- AQUI o módulo do gráfico foi adicionado corretamente
+    MatIconModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
