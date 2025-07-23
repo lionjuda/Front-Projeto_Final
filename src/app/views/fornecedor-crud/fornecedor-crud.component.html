@@ -5,12 +5,13 @@
     </button>
 
 
-      <div class="search-container">
+    <div class="search-container">
       <a class="search-btn" (mouseenter)="showSearch = true" (mouseleave)="showSearch = false">
         <img class="lupa" src="assets/img/lupa.png" alt="Pesquisar">
       </a>
       <div class="search-box" [class.show]="showSearch">
-        <input type="text" class="search-text" placeholder="Pesquisar ..." [(ngModel)]="searchTerm" (input)="filtrarFornecedores()" />
+        <input type="text" class="search-text" placeholder="Pesquisar ..." [(ngModel)]="searchTerm"
+          (input)="filtrarFornecedores()" />
       </div>
     </div>
 

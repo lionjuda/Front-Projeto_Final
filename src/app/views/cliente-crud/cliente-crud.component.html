@@ -9,7 +9,8 @@
         <img class="lupa" src="assets/img/lupa.png" alt="Pesquisar">
       </a>
       <div class="search-box" [class.show]="showSearch">
-        <input type="text" class="search-text" placeholder="Pesquisar ..." [(ngModel)]="searchTerm" (input)="filtrarClientes()" />
+        <input type="text" class="search-text" placeholder="Pesquisar ..." [(ngModel)]="searchTerm"
+          (input)="filtrarClientes()" />
       </div>
     </div>
 

@@ -1,48 +1,43 @@
 <mat-toolbar color="primary" class="top-toolbar">
-  <!-- Logo e título -->
   <span class="logo-title">
-  <i class="material-icons">dashboard</i> 
-    Loja de Auto Peças
+    <i class="material-icons"></i>
   </span>
 
-  <!-- Espaço flexível para empurrar os links para a direita -->
   <span class="spacer"></span>
 
-  <!-- Links de navegação -->
   <a mat-button routerLink="/">
-    <img src="assets/img/casa.png" alt="Ícone Home" class="icon gira-3d">
+    <img src="assets/img/casa.png" alt="Início" class="icon gira-3d">
     Início
   </a>
 
   <a mat-button routerLink="/products">
-    <img src="assets/img/engrenagem.png" alt="Ícone Produtos" class="icon gira-simples">
+    <img src="assets/img/engrenagem.png" alt="Produtos" class="icon gira-simples">
     Produtos
   </a>
 
   <a mat-button routerLink="/clientes">
-      <span class="cliente-brilho">
-    <i class="material-icons">group	</i> 
-      </span>   
+    <span class="cliente-brilho">
+      <i class="material-icons">group</i>
+    </span>
     Cliente
   </a>
 
   <a mat-button routerLink="/fornecedor">
-    <img src="assets/img/entrega.png" alt="Ícone Fornecedor" class="icon gira-3d">
+    <img src="assets/img/entrega.png" alt="Fornecedor" class="icon gira-3d">
     Fornecedor
   </a>
 
   <a mat-button routerLink="/contato">
-    <img src="assets/img/telefone.png" alt="Ícone Contato" class="icon gira-simples">
+    <img src="assets/img/telefone.png" alt="Contato" class="icon gira-simples">
     Contato
   </a>
 
   <a mat-button routerLink="/formaPagamento">
-    <img src="assets/img/pix.png" alt="Ícone Pagamentos" class="icon gira-simples">
+    <img src="assets/img/pix.png" alt="Pagamentos" class="icon gira-simples">
     Pagamentos
   </a>
 </mat-toolbar>
 
-<!-- Conteúdo principal abaixo da toolbar -->
 <div class="content">
   <router-outlet></router-outlet>
 </div>

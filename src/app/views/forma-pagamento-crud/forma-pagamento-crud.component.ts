@@ -47,8 +47,8 @@ export class FormaPagamentoCrudComponent implements OnInit {
         fp.fpgDescricao?.toLowerCase(),
         fp.fpgAtivo ? 'sim' : 'não',
         fp.fpgPermiteParcelamento ? 'sim' : 'não',
-        String(fp.fpgNumeroMaximoParcelas??''),
-        String(fp.fpgTaxaAdicional??'')
+        String(fp.fpgNumeroMaximoParcelas ?? ''),
+        String(fp.fpgTaxaAdicional ?? '')
       ];
 
       // Verifica se todos os termos pesquisados aparecem em algum campo
