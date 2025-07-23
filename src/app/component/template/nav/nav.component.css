@@ -47,7 +47,7 @@
 
 .top-toolbar a:hover {
   background: linear-gradient(135deg, #c9a11c 0%, #2727aa 100%);
-  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+  box-shadow: 0 0 10px rgb(208, 255, 0), 0 0 20px rgb(251, 255, 0), 0 0 30px #0ff;
   font-family: "Orbitron", sans-serif;
   transform: translateY(4px);
 }

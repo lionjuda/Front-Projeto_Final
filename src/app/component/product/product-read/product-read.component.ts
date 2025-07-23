@@ -1,25 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'app-product-read', // Define o seletor do componente
-  templateUrl: './product-read.component.html', // Caminho para o template HTML
-  styleUrls: ['./product-read.component.css'] // Caminho para o arquivo de estilos CSS
+  selector: 'app-product-read',
+  templateUrl: './product-read.component.html',
+  styleUrls: ['./product-read.component.css']
 })
 export class ProductReadComponent implements OnInit {
-  @Input() 
-  products!: Product[]; // Lista de produtos
-  displayedColumns = ['proId', 'proNome', 'proPrecoCusto', 'proPrecoVenda', 'action']; // Colunas exibidas na tabela
+  products: Product[] = [];
+  displayedColumns = ['proId', 'proNome', 'proPrecoCusto', 'proPrecoVenda', 'action'];
 
-  // Injeta o serviço ProductService no construtor
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) { }
 
-  // Método executado ao inicializar o componente
   ngOnInit(): void {
     this.productService.read().subscribe(products => {
-      this.products = products; // Atribui os dados recebidos à lista de produtos
-      console.log(products); // Exibe os dados no console para depuração
+      this.products = products;
     });
   }
 }

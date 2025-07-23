@@ -39,8 +39,8 @@ export class ProductCrudComponent implements OnInit {
     this.filteredProducts = this.allProducts.filter(p => {
       return (
         p.proNome.toLowerCase().includes(term) ||
-        (p.proPrecoCusto !== null && p.proPrecoCusto.toString().includes(term)) ||
-        (p.proPrecoVenda !== null && p.proPrecoVenda.toString().includes(term))
+        (p.proPrecoCusto !== undefined && p.proPrecoCusto.toString().includes(term)) ||
+        (p.proPrecoVenda !== undefined && p.proPrecoVenda.toString().includes(term))
       );
     });
   }

@@ -3,22 +3,20 @@ import { Fornecedor } from '../fornecedor.model';
 import { FornecedorService } from '../fornecedor.service';
 
 @Component({
-  selector: 'app-fornecedor-read', // Define o seletor do componente
-  templateUrl: './fornecedor-read.component.html', // Caminho para o template HTML
-  styleUrls: ['./fornecedor-read.component.css'] // Caminho para o arquivo de estilos CSS
+  selector: 'app-fornecedor-read',
+  templateUrl: './fornecedor-read.component.html',
+  styleUrls: ['./fornecedor-read.component.css']
 })
 export class FornecedorReadComponent implements OnInit {
-  fornecedor!: Fornecedor[]; // Lista de fornecedores
-  displayedColumns = ['forId', 'forNomeFantasia', 'forCnpj', 'forRazaoSocial', 'action']; // Colunas exibidas na tabela
+  fornecedores: Fornecedor[] = [];
+  displayedColumns = ['forId', 'forNomeFantasia', 'forCnpj', 'forRazaoSocial', 'action'];
 
-  // Injeta o serviço FornecedorService no construtor
-  constructor(private fornecedorService: FornecedorService) {}
+  constructor(private fornecedorService: FornecedorService) { }
 
-  // Método executado ao inicializar o componente
   ngOnInit(): void {
-    this.fornecedorService.read().subscribe(fornecedor => {
-      this.fornecedor = fornecedor; // Atribui os dados recebidos à lista de fornecedores
-      console.log(fornecedor); // Exibe os dados no console para depuração
+    this.fornecedorService.read().subscribe({
+      next: data => this.fornecedores = data,
+      error: () => this.fornecedorService.showMessage('Erro ao carregar fornecedores')
     });
   }
 }

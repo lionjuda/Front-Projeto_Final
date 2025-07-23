@@ -1,23 +1,24 @@
 <mat-card>
-    <mat-card-title>Alterar Fornecedor</mat-card-title>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome fantasia" [(ngModel)]="fornecedor.forNomeFantasia" name="forNomeFantasia">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="CNPJ" [(ngModel)]="fornecedor.forCnpj" name="forCnpj">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Razão social" [(ngModel)]="fornecedor.forRazaoSocial" name="forRazaoSocial">
-        </mat-form-field>
-    </form>
+  <mat-card-title>Alterar Fornecedor</mat-card-title>
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome fantasia</mat-label>
+      <input matInput [(ngModel)]="fornecedor.forNomeFantasia" name="forNomeFantasia" required />
+    </mat-form-field>
 
-    <button mat-raised-button (click)="updateFornecedor()" color="primary">
-        Atualizar
-    </button>
-   
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
-    </button>
+    <mat-form-field appearance="outline">
+      <mat-label>CNPJ</mat-label>
+      <input matInput [(ngModel)]="fornecedor.forCnpj" name="forCnpj" required />
+    </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label>Razão social</mat-label>
+      <input matInput [(ngModel)]="fornecedor.forRazaoSocial" name="forRazaoSocial" required />
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" (click)="updateFornecedor()">Atualizar</button>
+      <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
+    </div>
+  </form>
 </mat-card>
