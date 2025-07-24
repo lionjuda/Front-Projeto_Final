@@ -1,26 +1,30 @@
 <mat-card>
     <mat-card-title>Alterar Cliente</mat-card-title>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="cliente.cliNome" name="cliNome">
+
+    <form (ngSubmit)="updateCliente()">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="cliente.cliNome" name="cliNome" required>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="CPF" [(ngModel)]="cliente.cliCpf" name="cliCpf">
+
+        <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput [(ngModel)]="cliente.cliCpf" name="cliCpf" required>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="E-mail" [(ngModel)]="cliente.cliEmail" name="cliEmail">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="cliente.cliEmail" name="cliEmail">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Telefone" [(ngModel)]="cliente.cliTelefone" name="cliTelefone">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input matInput [(ngModel)]="cliente.cliTelefone" name="cliTelefone">
         </mat-form-field>
+
+        <div class="actions">
+            <button mat-raised-button color="primary" type="submit">Atualizar</button>
+            <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
+        </div>
     </form>
-
-    <button mat-raised-button (click)="updateCliente()" color="primary">
-        Atualizar
-    </button>
-   
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
-    </button>
-
 </mat-card>

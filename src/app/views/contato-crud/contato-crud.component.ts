@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contato } from 'src/app/component/contato/contato-read.model';
-import { contatoService } from 'src/app/component/contato/contato.service';
+import { ContatoService } from 'src/app/component/contato/contato.service';
 
 @Component({
   selector: 'app-contato-crud',
@@ -16,7 +16,7 @@ export class ContatoCrudComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private contatoService: contatoService
+    private contatoService: ContatoService
   ) { }
 
   ngOnInit(): void {

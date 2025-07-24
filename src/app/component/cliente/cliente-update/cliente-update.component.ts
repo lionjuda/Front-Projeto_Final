@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente.model';
 import { ClienteService } from '../cliente.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,28 +8,32 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './cliente-update.component.html',
   styleUrls: ['./cliente-update.component.css']
 })
-export class ClienteUpdateComponent {
-  cliente!: Cliente;
+export class ClienteUpdateComponent implements OnInit {
+  cliente: Cliente = {} as Cliente;
 
-  constructor(private clienteService: ClienteService,
+  constructor(
+    private clienteService: ClienteService,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    const cliId = this.route.snapshot.paramMap.get('cliId')
-    this.clienteService.readById(cliId!).subscribe((cliente: Cliente) =>{
-      this.cliente = cliente
-    })
+    const cliId = this.route.snapshot.paramMap.get('cliId');
+    if (cliId) {
+      this.clienteService.readById(cliId).subscribe(cliente => {
+        this.cliente = cliente;
+      });
+    }
   }
 
   updateCliente(): void {
     this.clienteService.update(this.cliente).subscribe(() => {
-      this.clienteService.showMessage('Produto atualizado com sucesso!')
-      this.router.navigate(['/clientes'])
-    })
+      this.clienteService.showMessage('Cliente atualizado com sucesso!');
+      this.router.navigate(['/clientes']);
+    });
   }
 
   cancel(): void {
-    this.router.navigate(['/clientes'])
+    this.router.navigate(['/clientes']);
   }
 }

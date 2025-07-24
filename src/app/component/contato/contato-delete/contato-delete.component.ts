@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contato } from '../contato-read.model';
-import { contatoService } from '../contato.service';
+import { ContatoService } from '../contato.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,29 +8,34 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './contato-delete.component.html',
   styleUrls: ['./contato-delete.component.css']
 })
-export class ContatoDeleteComponent {
+export class ContatoDeleteComponent implements OnInit {
   contato!: Contato;
 
   constructor(
-    private contatoService: contatoService,
+    private contatoService: ContatoService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     const conId = this.route.snapshot.paramMap.get('conId');
-    this.contatoService.readById(conId!).subscribe(contato =>{
-      this.contato = contato
-    })
+    if (conId) {
+      this.contatoService.readById(conId).subscribe(contato => {
+        this.contato = contato;
+      });
+    }
   }
 
   deleteContato(): void {
-    this.contatoService.delete(this.contato.conId!).subscribe(() =>{
-    this.contatoService.showMessage('Produto excluido com sucesso!')  
-    this.router.navigate(['/contato'])
-    })
+    if (this.contato?.conId) {
+      this.contatoService.delete(this.contato.conId).subscribe(() => {
+        this.contatoService.showMessage('Contato excluído com sucesso!');
+        this.router.navigate(['/contato']);
+      });
+    }
   }
 
-  cancel(): void{
-    this.router.navigate(['/contato'])
+  cancel(): void {
+    this.router.navigate(['/contato']);
   }
 }
