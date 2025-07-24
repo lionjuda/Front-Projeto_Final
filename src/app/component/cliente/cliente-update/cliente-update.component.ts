@@ -20,14 +20,14 @@ export class ClienteUpdateComponent implements OnInit {
   ngOnInit(): void {
     const cliId = this.route.snapshot.paramMap.get('cliId');
     if (cliId) {
-      this.clienteService.readById(cliId).subscribe(cliente => {
+      this.clienteService.readByIdCliente(cliId).subscribe(cliente => {
         this.cliente = cliente;
       });
     }
   }
 
   updateCliente(): void {
-    this.clienteService.update(this.cliente).subscribe(() => {
+    this.clienteService.updateCliente(this.cliente).subscribe(() => {
       this.clienteService.showMessage('Cliente atualizado com sucesso!');
       this.router.navigate(['/clientes']);
     });

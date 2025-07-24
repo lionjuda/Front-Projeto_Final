@@ -10,10 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FornecedorUpdateComponent implements OnInit {
   fornecedor: Fornecedor = {
-    forId: 0,
     forNomeFantasia: '',
     forCnpj: '',
-    forRazaoSocial: ''
+    forRazaoSocial: '',
+    endRua: '',
+    endNumero: '',
+    endCep: '',
+    endCidade: '',
+    endEstado: '',
+    conCelular: '',
+    conTelefoneComercial: '',
+    conEmail: ''
   };
 
   constructor(
@@ -25,14 +32,14 @@ export class FornecedorUpdateComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('forId');
     if (id) {
-      this.fornecedorService.readById(+id).subscribe(fornecedor => {
+      this.fornecedorService.readByIdFornecedor(+id).subscribe(fornecedor => {
         this.fornecedor = fornecedor;
       });
     }
   }
 
   updateFornecedor(): void {
-    this.fornecedorService.update(this.fornecedor).subscribe(() => {
+    this.fornecedorService.updateFornecedor(this.fornecedor).subscribe(() => {
       this.fornecedorService.showMessage('Fornecedor atualizado com sucesso!');
       this.router.navigate(['/fornecedor']);
     });

@@ -18,7 +18,6 @@ export class ProductCreateComponent {
     proCategoria: '',
     proCodigoBarras: '',
     proMarca: '',
-    proUnidadeMedida: '',
     proAtivo: true,
     proDataCadastro: '',
     proDataAtualizacao: ''

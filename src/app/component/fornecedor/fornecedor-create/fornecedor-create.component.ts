@@ -13,6 +13,14 @@ export class FornecedorCreateComponent {
     forNomeFantasia: '',
     forCnpj: '',
     forRazaoSocial: '',
+    endRua: '',
+    endNumero: '',
+    endCep: '',
+    endCidade: '',
+    endEstado: '',
+    conCelular: '',
+    conTelefoneComercial: '',
+    conEmail: ''
   };
 
   constructor(
@@ -21,7 +29,7 @@ export class FornecedorCreateComponent {
   ) { }
 
   createFornecedor(): void {
-    this.fornecedorService.create(this.fornecedor).subscribe(() => {
+    this.fornecedorService.createFornecedor(this.fornecedor).subscribe(() => {
       this.fornecedorService.showMessage('Fornecedor criado!');
       this.router.navigate(['/fornecedor']);
     });

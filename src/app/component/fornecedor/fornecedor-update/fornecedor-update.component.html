@@ -1,6 +1,9 @@
 <mat-card>
   <mat-card-title>Alterar Fornecedor</mat-card-title>
   <form>
+
+    <h3 class="subtitulo">Dados Pessoais</h3>
+
     <mat-form-field appearance="outline">
       <mat-label>Nome fantasia</mat-label>
       <input matInput [(ngModel)]="fornecedor.forNomeFantasia" name="forNomeFantasia" required />
@@ -14,6 +17,50 @@
     <mat-form-field appearance="outline">
       <mat-label>Razão social</mat-label>
       <input matInput [(ngModel)]="fornecedor.forRazaoSocial" name="forRazaoSocial" required />
+    </mat-form-field>
+
+    <h3 class="subtitulo">Dados Pessoais</h3>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Rua</mat-label>
+      <input matInput [(ngModel)]="fornecedor.endRua" name="endRua" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Número</mat-label>
+      <input matInput [(ngModel)]="fornecedor.endNumero" name="endNumero" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cidade</mat-label>
+      <input matInput [(ngModel)]="fornecedor.endCidade" name="endCidade" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CEP</mat-label>
+      <input matInput [(ngModel)]="fornecedor.endCep" name="endCep" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <input matInput [(ngModel)]="fornecedor.endEstado" name="endEstado" required />
+    </mat-form-field>
+
+    <h3 class="subtitulo">Contato</h3>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input matInput [(ngModel)]="fornecedor.conCelular" name="conCelular" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone Comercial</mat-label>
+      <input matInput [(ngModel)]="fornecedor.conTelefoneComercial" name="conTelefoneComercial" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="fornecedor.conEmail" name="conEmail" required />
     </mat-form-field>
 
     <div class="button-group">

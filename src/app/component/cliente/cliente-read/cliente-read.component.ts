@@ -9,12 +9,27 @@ import { ClienteService } from '../cliente.service';
 })
 export class ClienteReadComponent implements OnInit {
   clientes: Cliente[] = [];
-  displayedColumns = ['cliId', 'cliNome', 'cliCpf', 'cliEmail', 'cliTelefone', 'action'];
+  displayedColumns = [
+    'cliId',
+    'cliNome',
+    'cliCpf',
+    'cliEmail',
+    'cliTelefone',
+    'conEmail',
+    'conCelular',
+    'conTelefoneComercial',
+    'endRua',
+    'endNumero',
+    'endCidade',
+    'endCep',
+    'endEstado',
+    'action'
+  ];
 
   constructor(private clienteService: ClienteService) { }
 
   ngOnInit(): void {
-    this.clienteService.read().subscribe(clientes => {
+    this.clienteService.readCliente().subscribe(clientes => {
       this.clientes = clientes;
     });
   }

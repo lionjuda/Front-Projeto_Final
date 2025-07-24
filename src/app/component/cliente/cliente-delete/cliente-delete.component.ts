@@ -20,7 +20,7 @@ export class ClienteDeleteComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('cliId');
     if (id) {
-      this.clienteService.readById(id).subscribe(cliente => {
+      this.clienteService.readByIdCliente(id).subscribe(cliente => {
         this.cliente = cliente;
       });
     }
@@ -28,7 +28,7 @@ export class ClienteDeleteComponent implements OnInit {
 
   deleteCliente(): void {
     if (this.cliente?.cliId) {
-      this.clienteService.delete(this.cliente.cliId).subscribe(() => {
+      this.clienteService.deleteCliente(this.cliente.cliId).subscribe(() => {
         this.clienteService.showMessage('Cliente excluído com sucesso!');
         this.router.navigate(['/clientes']);
       });

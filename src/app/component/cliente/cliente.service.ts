@@ -3,6 +3,10 @@ import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Observable } from "rxjs";
 import { Cliente } from './cliente.model';
+import { Contato } from "../contato/contato-read.model";
+import { Endereco } from "src/app/models/endereco.model";
+
+
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +14,8 @@ import { Cliente } from './cliente.model';
 export class ClienteService {
 
     private baseUrl = "http://localhost:8080/clientes";
+    private contatobaseUrl = "http://localhost:8080/contatos";
+    private enderecobaseUrl = "http://localhost:8080/enderecos";
 
     constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
@@ -21,23 +27,63 @@ export class ClienteService {
         });
     }
 
-    create(cliente: Cliente): Observable<Cliente> {
+    createCliente(cliente: Cliente): Observable<Cliente> {
         return this.http.post<Cliente>(this.baseUrl, cliente);
     }
 
-    read(): Observable<Cliente[]> {
+    readCliente(): Observable<Cliente[]> {
         return this.http.get<Cliente[]>(this.baseUrl);
     }
 
-    readById(id: string): Observable<Cliente> {
+    readByIdCliente(id: string): Observable<Cliente> {
         return this.http.get<Cliente>(`${this.baseUrl}/${id}`);
     }
 
-    update(cliente: Cliente): Observable<Cliente> {
+    updateCliente(cliente: Cliente): Observable<Cliente> {
         return this.http.put<Cliente>(`${this.baseUrl}/${cliente.cliId}`, cliente);
     }
 
-    delete(id: number): Observable<Cliente> {
+    deleteCliente(id: number): Observable<Cliente> {
         return this.http.delete<Cliente>(`${this.baseUrl}/${id}`);
+    }
+
+    createContato(contato: Contato): Observable<Contato> {
+        return this.http.post<Contato>(this.contatobaseUrl, contato);
+    }
+
+    readContato(): Observable<Contato[]> {
+        return this.http.get<Contato[]>(this.contatobaseUrl);
+    }
+
+    readByIdContato(id: string): Observable<Contato> {
+        return this.http.get<Contato>(`${this.contatobaseUrl}/${id}`);
+    }
+
+    updateContato(contato: Contato): Observable<Contato> {
+        return this.http.put<Contato>(`${this.contatobaseUrl}/${contato.conId}`, contato);
+    }
+
+    deleteContato(id: number): Observable<Contato> {
+        return this.http.delete<Contato>(`${this.contatobaseUrl}/${id}`);
+    }
+
+    createEndereco(endereco: Endereco): Observable<Endereco> {
+        return this.http.post<Endereco>(this.enderecobaseUrl, endereco);
+    }
+
+    readEndereco(): Observable<Endereco[]> {
+        return this.http.get<Endereco[]>(this.enderecobaseUrl);
+    }
+
+    readByIdEndereco(id: string): Observable<Endereco> {
+        return this.http.get<Endereco>(`${this.enderecobaseUrl}/${id}`);
+    }
+
+    updateEndereco(endereco: Endereco): Observable<Endereco> {
+        return this.http.put<Endereco>(`${this.enderecobaseUrl}/${endereco.endId}`, endereco);
+    }
+
+    deleteEndereco(id: number): Observable<Endereco> {
+        return this.http.delete<Endereco>(`${this.enderecobaseUrl}/${id}`);
     }
 }

@@ -1,6 +1,8 @@
 <mat-card>
     <mat-card-title>Alterar Cliente</mat-card-title>
 
+    <h3 calss="subtitulo">Dados do Cliente</h3>
+
     <form (ngSubmit)="updateCliente()">
         <mat-form-field appearance="fill">
             <mat-label>Nome</mat-label>
@@ -12,14 +14,48 @@
             <input matInput [(ngModel)]="cliente.cliCpf" name="cliCpf" required>
         </mat-form-field>
 
+        <h3 calss="subtitulo">Endereço</h3>
+
         <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput [(ngModel)]="cliente.cliEmail" name="cliEmail">
+            <mat-label>Rua</mat-label>
+            <input matInput [(ngModel)]="cliente.endRua" name="cliEmail">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput [(ngModel)]="cliente.cliTelefone" name="cliTelefone">
+            <mat-label>Número</mat-label>
+            <input matInput [(ngModel)]="cliente.endNumero" name="cliTelefone">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput [(ngModel)]="cliente.endCidade" name="cliEmail">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cep</mat-label>
+            <input matInput [(ngModel)]="cliente.endCep" name="cliTelefone">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <input matInput [(ngModel)]="cliente.endEstado" name="cliTelefone">
+        </mat-form-field>
+
+        <h3 calss="subtitulo">Contato</h3>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Celular</mat-label>
+            <input matInput [(ngModel)]="cliente.conCelular" name="cliEmail">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Telefone Comercial</mat-label>
+            <input matInput [(ngModel)]="cliente.conTelefoneComercial" name="cliTelefone">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="cliente.conEmail" name="cliTelefone">
         </mat-form-field>
 
         <div class="actions">

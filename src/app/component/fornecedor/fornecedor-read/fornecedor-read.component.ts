@@ -14,7 +14,7 @@ export class FornecedorReadComponent implements OnInit {
   constructor(private fornecedorService: FornecedorService) { }
 
   ngOnInit(): void {
-    this.fornecedorService.read().subscribe({
+    this.fornecedorService.readFornecedor().subscribe({
       next: data => this.fornecedores = data,
       error: () => this.fornecedorService.showMessage('Erro ao carregar fornecedores')
     });

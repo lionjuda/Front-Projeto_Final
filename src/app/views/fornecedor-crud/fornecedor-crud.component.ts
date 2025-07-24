@@ -20,7 +20,7 @@ export class FornecedorCrudComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.fornecedorService.read().subscribe(fornecedores => {
+    this.fornecedorService.readFornecedor().subscribe(fornecedores => {
       this.todosFornecedores = fornecedores;
       this.fornecedoresFiltrados = fornecedores;
     });

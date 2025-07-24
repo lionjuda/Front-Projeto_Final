@@ -12,9 +12,14 @@ export class ClienteCreateComponent {
   cliente: Cliente = {
     cliNome: '',
     cliCpf: '',
-    cliEmail: '',
-    cliTelefone:''
-    
+    conEmail: '',
+    conTelefoneComercial:'',
+    conCelular: '',
+    endRua: '',
+    endNumero: '',
+    endCidade: '',
+    endCep: '',
+    endEstado: ''
   };
 
   constructor(
@@ -23,7 +28,7 @@ export class ClienteCreateComponent {
   ) { }
 
   createCliente(): void {
-    this.clienteService.create(this.cliente).subscribe(() => {
+    this.clienteService.createCliente(this.cliente).subscribe(() => {
       this.clienteService.showMessage('Cliente criado!');
       this.router.navigate(['/clientes']);
     });

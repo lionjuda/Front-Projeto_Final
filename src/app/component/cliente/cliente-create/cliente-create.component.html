@@ -2,6 +2,9 @@
     <mat-card-title class="titulo">Novo Cliente</mat-card-title>
 
     <form class="formulario">
+
+        <h3 class="subtitulo">Seus Dados</h3>
+
         <mat-form-field>
             <input matInput placeholder="Nome" [(ngModel)]="cliente.cliNome" name="cliNome" required>
         </mat-form-field>
@@ -10,12 +13,40 @@
             <input matInput placeholder="CPF" [(ngModel)]="cliente.cliCpf" name="cliCpf" required>
         </mat-form-field>
 
+        <h3 class="subtitulo">Endereço</h3>
+
         <mat-form-field>
-            <input matInput placeholder="E-mail" [(ngModel)]="cliente.cliEmail" name="cliEmail" required>
+            <input matInput placeholder="Rua" [(ngModel)]="cliente.endRua" name="endRua" required>
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Telefone" [(ngModel)]="cliente.cliTelefone" name="cliTelefone" required>
+            <input matInput placeholder="Numero" [(ngModel)]="cliente.endNumero" name="endNumero" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Cidade" [(ngModel)]="cliente.endCidade" name="endCidade" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Cep" [(ngModel)]="cliente.endCep" name="endCep" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Estado" [(ngModel)]="cliente.endEstado" name="endEstado" required>
+        </mat-form-field>
+
+        <h3 class="subtitulo">Contato</h3>
+
+        <mat-form-field>
+            <input matInput placeholder="Celular" [(ngModel)]="cliente.conCelular" name="conCelular" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Telefone ComerciaL" [(ngModel)]="cliente.conTelefoneComercial" name="conTelefoneComercial" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="cliente.conEmail" name="conEmail" required>
         </mat-form-field>
 
         <button mat-raised-button color="primary" (click)="createCliente()">Salvar</button>

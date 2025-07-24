@@ -9,11 +9,30 @@
             <input matInput placeholder="CPF" [value]="cliente.cliCpf" disabled>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="E-mail" [value]="cliente.cliEmail" disabled>
+            <input matInput placeholder="Celular" [value]="cliente.conCelular" disabled>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Telefone" [value]="cliente.cliTelefone" disabled>
+            <input matInput placeholder="E-mail" [value]="cliente.conEmail" disabled>
         </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Telefone Comercial" [value]="cliente.conTelefoneComercial" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Rua" [value]="cliente.endRua" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Numero" [value]="cliente.endNumero" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Cidade" [value]="cliente.endCidade" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="CEP" [value]="cliente.endCep" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Estado" [value]="cliente.endEstado" disabled>
+        </mat-form-field>
+        
     </form>
 
     <button mat-raised-button color="warn" (click)="deleteCliente()">Excluir</button>
