@@ -21,11 +21,11 @@ export class FormaPagamentoCreateComponent {
   createFormaPagamento(): void {
     this.formaPagamentoService.create(this.formaPagamento).subscribe(() => {
       this.formaPagamentoService.showMessage('Forma de pagamento criada com sucesso!');
-      this.router.navigate(['/formaPagamento']);
+      this.router.navigate(['/formaPagamentos']);
     });
   }
 
   cancel(): void {
-    this.router.navigate(['/formaPagamento']);
+    this.router.navigate(['/formaPagamentos']);
   }
 }

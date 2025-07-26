@@ -23,11 +23,11 @@ export class ContatoCreateComponent {
   createContato(): void {
     this.contatoService.create(this.contato).subscribe(() => {
       this.contatoService.showMessage('Contato criado!');
-      this.router.navigate(['/contato']);
+      this.router.navigate(['/contatos']);
     });
   }
 
   cancel(): void {
-    this.router.navigate(['/contato']);
+    this.router.navigate(['/contatos']);
   }
 }

@@ -33,7 +33,7 @@ export class FornecedorCreateComponent {
     this.fornecedorService.createFornecedor(this.fornecedor).subscribe({
       next: () => {
         this.fornecedorService.showMessage('Fornecedor criado!');
-        this.router.navigate(['/fornecedor']);
+        this.router.navigate(['/fornecedores']);
       },
       error: (err: HttpErrorResponse) => {
         console.error('Erro ao criar fornecedor:', err);
@@ -45,6 +45,6 @@ export class FornecedorCreateComponent {
   }
 
   cancel(): void {
-    this.router.navigate(['/fornecedor']);
+    this.router.navigate(['/fornecedores']);
   }
 }
