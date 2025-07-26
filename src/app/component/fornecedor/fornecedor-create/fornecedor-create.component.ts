@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Fornecedor } from '../fornecedor.model';
 import { Router } from '@angular/router';
 import { FornecedorService } from '../fornecedor.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-fornecedor-create',
@@ -29,9 +30,17 @@ export class FornecedorCreateComponent {
   ) { }
 
   createFornecedor(): void {
-    this.fornecedorService.createFornecedor(this.fornecedor).subscribe(() => {
-      this.fornecedorService.showMessage('Fornecedor criado!');
-      this.router.navigate(['/fornecedor']);
+    this.fornecedorService.createFornecedor(this.fornecedor).subscribe({
+      next: () => {
+        this.fornecedorService.showMessage('Fornecedor criado!');
+        this.router.navigate(['/fornecedor']);
+      },
+      error: (err: HttpErrorResponse) => {
+        console.error('Erro ao criar fornecedor:', err);
+        console.log('Status:', err.status);
+        console.log('Mensagem:', err.error);
+        this.fornecedorService.showMessage('Erro ao criar fornecedor. Verifique os dados ou tente novamente.');
+      }
     });
   }
 

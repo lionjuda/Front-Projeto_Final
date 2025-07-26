@@ -13,9 +13,9 @@ import { Endereco } from "src/app/models/endereco.model";
 })
 export class ClienteService {
 
-    private baseUrl = "http://localhost:8080/clientes";
-    private contatobaseUrl = "http://localhost:8080/contatos";
-    private enderecobaseUrl = "http://localhost:8080/enderecos";
+    private baseUrl = "http://localhost:8080/cliente";
+    private contatobaseUrl = "http://localhost:8080/contato";
+    private enderecobaseUrl = "http://localhost:8080/endereco";
 
     constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 

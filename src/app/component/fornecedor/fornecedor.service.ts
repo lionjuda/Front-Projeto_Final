@@ -1,86 +1,69 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Fornecedor } from './fornecedor.model';
-import { Contato } from "../contato/contato-read.model";
-import { Endereco } from "src/app/models/endereco.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FornecedorService {
-  private baseUrl = "http://localhost:8080/fornecedor";
-  private contatobaseUrl = 'http://localhost:8080/contatos';
-  private enderecobaseUrl = 'http://localhost:8080/enderecos';
+  private apiUrl = 'http://localhost:8080/fornecedores'; // Corrigido
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
-  showMessage(msg: string): void {
+  showMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top"
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: isError ? ['msg-error'] : ['msg-success']
     });
   }
 
   createFornecedor(fornecedor: Fornecedor): Observable<Fornecedor> {
-    return this.http.post<Fornecedor>(this.baseUrl, fornecedor);
+    return this.http.post<Fornecedor>(this.apiUrl, fornecedor).pipe(
+      catchError((error) => {
+        this.showMessage('Erro ao criar fornecedor: ' + error.message, true);
+        return throwError(() => error);
+      })
+    );
   }
 
   readFornecedor(): Observable<Fornecedor[]> {
-    return this.http.get<Fornecedor[]>(this.baseUrl);
+    return this.http.get<Fornecedor[]>(this.apiUrl).pipe(
+      catchError((error) => {
+        this.showMessage('Erro ao carregar fornecedores: ' + error.message, true);
+        return throwError(() => error);
+      })
+    );
   }
 
   readByIdFornecedor(id: number): Observable<Fornecedor> {
-    return this.http.get<Fornecedor>(`${this.baseUrl}/${id}`);
+    return this.http.get<Fornecedor>(`${this.apiUrl}/${id}`).pipe(
+      catchError((error) => {
+        this.showMessage(`Erro ao carregar fornecedor com ID ${id}: ` + error.message, true);
+        return throwError(() => error);
+      })
+    );
   }
 
   updateFornecedor(fornecedor: Fornecedor): Observable<Fornecedor> {
-    return this.http.put<Fornecedor>(`${this.baseUrl}/${fornecedor.forId}`, fornecedor);
+    return this.http.put<Fornecedor>(`${this.apiUrl}/${fornecedor.forId}`, fornecedor).pipe(
+      catchError((error) => {
+        this.showMessage('Erro ao atualizar fornecedor: ' + error.message, true);
+        return throwError(() => error);
+      })
+    );
   }
 
-  deleteFornecedor(id: number): Observable<Fornecedor> {
-    return this.http.delete<Fornecedor>(`${this.baseUrl}/${id}`);
-  }
-
-  createContato(contato: Contato): Observable<Contato> {
-    return this.http.post<Contato>(this.baseUrl, contato);
-  }
-
-  readContato(): Observable<Contato[]> {
-    return this.http.get<Contato[]>(this.baseUrl);
-  }
-
-  readByIdContato(id: number): Observable<Contato> {
-    return this.http.get<Contato>(`${this.contatobaseUrl}/${id}`);
-  }
-
-  updateContato(contato: Contato): Observable<Contato> {
-    return this.http.put<Contato>(`${this.contatobaseUrl}/${contato.conId}`, contato);
-  }
-
-  deleteContato(id: number): Observable<Contato> {
-    return this.http.delete<Contato>(`${this.contatobaseUrl}/${id}`);
-  }
-
-  createEndereço(endereco: Endereco): Observable<Endereco> {
-    return this.http.post<Endereco>(this.enderecobaseUrl, endereco);
-  }
-
-  readEndereço(): Observable<Endereco[]> {
-    return this.http.get<Endereco[]>(this.enderecobaseUrl);
-  }
-
-  readByIdEndereço(id: number): Observable<Endereco> {
-    return this.http.get<Endereco>(`${this.enderecobaseUrl}/${id}`);
-  }
-
-  updateEndereço(endereco: Endereco): Observable<Endereco> {
-    return this.http.put<Endereco>(`${this.enderecobaseUrl}/${endereco.endId}`, endereco);
-  }
-
-  deleteEndereço(id: number): Observable<Endereco> {
-    return this.http.delete<Endereco>(`${this.baseUrl}/${id}`);
+  deleteFornecedor(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+      catchError((error) => {
+        this.showMessage(`Erro ao deletar fornecedor com ID ${id}: ` + error.message, true);
+        return throwError(() => error);
+      })
+    );
   }
 }
